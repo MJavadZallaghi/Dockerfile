@@ -12,6 +12,10 @@ RUN cd home/${user}/ && mkdir downloads
 COPY ${vscode_file} home/${user}/downloads
 RUN cd home/${user}/downloads/ && sudo apt-get update && sudo apt-get install -y ./${vscode_file}
 
+# Install git, curl
+RUN sudo apt-get update && sudo apt-get install -y git
+RUN sudo apt-get update && sudo apt-get install -y curl
+
 # Entery point script
 COPY entery_script.sh /home/${user}/entery_script.sh
 RUN cd /home/${user}/ && chmod +x entery_script.sh
