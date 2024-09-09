@@ -1,4 +1,4 @@
-FROM docker.arvancloud.ir/osrf/ros:noetic-desktop-full
+FROM osrf/ros:noetic-desktop-full
 
 ENV vscode_file=code_1.92.0-1722473020_amd64.deb
 ENV user=MJavadZallaghi
@@ -17,8 +17,9 @@ RUN sudo apt-get update && sudo apt-get install -y git
 RUN sudo apt-get update && sudo apt-get install -y curl
 
 # # CTU MRS Native Installation
-# RUN curl https://ctu-mrs.github.io/ppa-stable/add_ppa.sh | bash
-# RUN sudo apt install ros-noetic-mrs-uav-system-full -y
+RUN curl https://ctu-mrs.github.io/ppa-stable/add_ppa.sh | bash
+RUN sudo apt install ros-noetic-mrs-uav-system-full -y
+
 
 # # CTU MRS install based on the summer school
 # RUN cd /home/${user}/ && git clone https://github.com/ctu-mrs/summer-school-2024.git
